@@ -93,3 +93,33 @@ RFC.fit(train_X, train_y)
 data_y_rfc = RFC.predict(test_X)
 print(mean_absolute_error(data_y_rfc, test_y))
 ```
+## Performance Metrics
+The **Mean Absolute Error (MAE)** is used to evaluate model performance:
+
+| Model | MAE |
+|--------|------|
+| **Logistic Regression** | Varies (Depends on Convergence) |
+| **Decision Tree Classifier** | Higher Error (Not Ideal for Regression) |
+| **Decision Tree Regressor** | Good Performance |
+| **Random Forest Regressor** | **Best Performance (~22,816)** |
+| **Random Forest Classifier** | High Error (~28,229) |
+
+## Observations
+- **Random Forest Regressor** performed the best with the lowest error (~22,816).
+- **Logistic Regression & Classifiers** are **not ideal** for predicting continuous numerical values.
+- **Decision Tree Regressor** performs well but is prone to overfitting.
+
+## Future Improvements
+🚀 **Hyperparameter Tuning** - Optimize tree depth, number of estimators, etc.
+
+📊 **Feature Engineering** - Include more relevant features to improve accuracy.
+
+🧹 **Handling Missing Data** - Implement better strategies instead of dropping values.
+
+⚡ **Deep Learning Models** - Experiment with neural networks for price prediction.
+
+## License
+This project is **open-source** and free for **non-commercial use**.
+
+## Author
+Developed by **Dassayeva Sofiya**.
