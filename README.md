@@ -38,3 +38,21 @@ pip install pandas scikit-learn
    ```sh
    python model.py
    ```
+## Code Breakdown
+### **1. Data Preprocessing**
+```python
+import pandas as pd
+housing = pd.read_csv("train.csv")
+features = ["MSSubClass", "LotArea", "OverallQual", "OverallCond", "YearBuilt", "GrLivArea", "BedroomAbvGr", "PoolArea", "YrSold"]
+housing = pd.get_dummies(housing)
+housing = housing.dropna(axis=0, how='any')
+y = housing.SalePrice
+X = housing[features]
+```
+
+### **2. Train-Test Split**
+```python
+from sklearn.model_selection import train_test_split
+train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=1)
+```
+
