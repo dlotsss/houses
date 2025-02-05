@@ -20,3 +20,21 @@ The following features are selected for training the models:
 
 The dataset is **preprocessed** using one-hot encoding for categorical features and missing values are dropped.
 
+## Installation
+### **Requirements**
+Ensure you have **Python 3.x** installed along with the required libraries:
+```sh
+pip install pandas scikit-learn
+```
+
+### **Running the Model**
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/housing-price-prediction.git
+   cd housing-price-prediction
+   ```
+2. Place the dataset `train.csv` in the project directory.
+3. Run the script:
+   ```sh
+   python model.py
+   ```
