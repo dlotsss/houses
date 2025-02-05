@@ -55,4 +55,41 @@ X = housing[features]
 from sklearn.model_selection import train_test_split
 train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=1)
 ```
+### **3. Training and Evaluating Models**
+#### **Logistic Regression**
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import mean_absolute_error
+LR = LogisticRegression(random_state=1, max_iter=5000)
+LR.fit(train_X, train_y)
+data_y = LR.predict(test_X)
+print(mean_absolute_error(data_y, test_y))
+```
 
+#### **Decision Tree Classifier & Regressor**
+```python
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+DTC = DecisionTreeClassifier(max_depth=38, random_state=1)
+DTC.fit(train_X, train_y)
+data_y_dtc = DTC.predict(test_X)
+print(mean_absolute_error(data_y_dtc, test_y))
+
+DTR = DecisionTreeRegressor(max_depth=38, random_state=1)
+DTR.fit(train_X, train_y)
+data_y_dtr = DTR.predict(test_X)
+print(mean_absolute_error(data_y_dtr, test_y))
+```
+
+#### **Random Forest Regressor & Classifier**
+```python
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+RFR = RandomForestRegressor(random_state=1)
+RFR.fit(train_X, train_y)
+data_y_rfr = RFR.predict(test_X)
+print(mean_absolute_error(data_y_rfr, test_y))
+
+RFC = RandomForestClassifier(random_state=1, max_depth=15)
+RFC.fit(train_X, train_y)
+data_y_rfc = RFC.predict(test_X)
+print(mean_absolute_error(data_y_rfc, test_y))
+```
