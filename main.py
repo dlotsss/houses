@@ -50,3 +50,14 @@ y = df["SalePrice"]
 train_X, test_X, train_y, test_y = train_test_split(X, y,
                                                     test_size=0.2,
                                                     random_state=42)
+
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(train_X, train_y)
+preds = model.predict(test_X)
+
+mae = mean_absolute_error(test_y, preds)
+
+print("\nRandomForestRegressor MAE:", mae)
+
+scores = cross_val_score(model, X, y, cv=5, scoring="neg_mean_absolute_error")
+print("Cross-validated MAE:", -1 * np.mean(scores))
