@@ -20,3 +20,13 @@ df.drop(columns=cols_with_many_nans, inplace=True)
 num_features = df.select_dtypes(include=[np.number]).columns
 num_imputer = SimpleImputer(strategy="median")
 df[num_features] = num_imputer.fit_transform(df[num_features])
+
+cat_features = df.select_dtypes(include=["object"]).columns
+for cat_col in cat_features:
+    df[cat_col] = df[cat_col].fillna("None")
+
+df = df[df["SalePrice"] < 700000]
+
+corr_matrix = df.corr()
+top_corr = corr_matrix["SalePrice"].abs().sort_values(ascending=False).head(15)
+print("\nTop correlated features with SalePrice:\n", top_corr)
