@@ -30,3 +30,23 @@ df = df[df["SalePrice"] < 700000]
 corr_matrix = df.corr()
 top_corr = corr_matrix["SalePrice"].abs().sort_values(ascending=False).head(15)
 print("\nTop correlated features with SalePrice:\n", top_corr)
+
+features = [
+    "OverallQual",
+    "GrLivArea",
+    "GarageCars",
+    "GarageArea",
+    "TotalBsmtSF",
+    "YearBuilt",
+    "YearRemodAdd",
+    "1stFlrSF",
+    "FullBath",
+    "TotRmsAbvGrd"
+]
+
+X = df[features]
+y = df["SalePrice"]
+
+train_X, test_X, train_y, test_y = train_test_split(X, y,
+                                                    test_size=0.2,
+                                                    random_state=42)
