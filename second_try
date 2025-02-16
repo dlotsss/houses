@@ -28,3 +28,18 @@ features = [
     'FireplaceQu',    # Fireplace quality
     'Foundation',     # Type of foundation
 ]
+
+
+df = housing[features + ['SalePrice']]
+
+df['FireplaceQu'] = df['FireplaceQu'].fillna('None')
+df['GarageFinish'] = df['GarageFinish'].fillna('None')
+df['BsmtQual'] = df['BsmtQual'].fillna('None')
+
+categorical_features = ['MSZoning', 'ExterQual', 'KitchenQual', 'BsmtQual',
+                       'GarageFinish', 'FireplaceQu', 'Foundation']
+
+label_encoders = {}
+for feature in categorical_features:
+    label_encoders[feature] = LabelEncoder()
+    df[feature] = label_encoders[feature].fit_transform(df[feature])
