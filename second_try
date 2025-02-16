@@ -7,3 +7,24 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
+
+
+housing = pd.read_csv("train.csv")
+
+features = [
+    'OverallQual',    # Overall material and finish quality
+    'GrLivArea',      # Above ground living area
+    'GarageCars',     # Size of garage in car capacity
+    'TotalBsmtSF',    # Total basement square footage
+    'FullBath',       # Number of full bathrooms
+    'YearBuilt',      # Original construction date
+    'YearRemodAdd',   # Remodel date
+    'GarageArea',     # Size of garage in square feet
+    'MSZoning',       # General zoning classification
+    'ExterQual',      # Exterior material quality
+    'KitchenQual',    # Kitchen quality
+    'BsmtQual',       # Height of basement
+    'GarageFinish',   # Interior finish of garage
+    'FireplaceQu',    # Fireplace quality
+    'Foundation',     # Type of foundation
+]
