@@ -67,3 +67,13 @@ for name, model in models.items():
     predictions = model.predict(test_X)
     mae = mean_absolute_error(test_y, predictions)
     print(f"{name} MAE: ${mae:,.2f}")
+
+
+rf_model = models['RandomForestRegressor']
+feature_importance = pd.DataFrame({
+    'feature': features,
+    'importance': rf_model.feature_importances_
+})
+print("\nFeature Importance:")
+print(feature_importance.sort_values('importance', ascending=False))
+
