@@ -55,3 +55,15 @@ numerical_features = ['OverallQual', 'GrLivArea', 'GarageCars', 'TotalBsmtSF',
                      'FullBath', 'YearBuilt', 'YearRemodAdd', 'GarageArea']
 train_X[numerical_features] = scaler.fit_transform(train_X[numerical_features])
 test_X[numerical_features] = scaler.transform(test_X[numerical_features])
+
+
+models = {
+    'DecisionTreeRegressor': DecisionTreeRegressor(random_state=1, max_depth=20),
+    'RandomForestRegressor': RandomForestRegressor(random_state=1, n_estimators=100, max_depth=20)
+}
+
+for name, model in models.items():
+    model.fit(train_X, train_y)
+    predictions = model.predict(test_X)
+    mae = mean_absolute_error(test_y, predictions)
+    print(f"{name} MAE: ${mae:,.2f}")
