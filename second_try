@@ -43,3 +43,9 @@ label_encoders = {}
 for feature in categorical_features:
     label_encoders[feature] = LabelEncoder()
     df[feature] = label_encoders[feature].fit_transform(df[feature])
+
+X = df[features]
+y = df['SalePrice']
+
+# Split the data
+train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2, random_state=1)
