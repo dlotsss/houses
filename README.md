@@ -33,3 +33,12 @@ The script outputs the Mean Absolute Error (MAE) for each model, allowing you to
 ## Acknowledgments
 - The Ames Housing dataset is publicly available and widely used for regression tasks.
 - Special thanks to the creators of the dataset and the machine learning community for their contributions.
+
+
+| Model | MAE |
+|--------|------|
+| **Logistic Regression** | Varies (Depends on Convergence) |
+| **Decision Tree Classifier** | Higher Error (Not Ideal for Regression) |
+| **Decision Tree Regressor** | Good Performance |
+| **Random Forest Regressor** | **Best Performance (~22,816)** |
+| **Random Forest Classifier** | High Error (~28,229) |
